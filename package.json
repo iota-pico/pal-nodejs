@@ -25,6 +25,9 @@
         "type": "git",
         "url": "https://github.com/iotaeco/iota-pico-pal-nodejs.git"
     },
+    "engines": {
+        "node": ">=8"
+    },
     "scripts": {
         "build-clean": "rimraf ./dist/*",
         "build-compile": "tsc",
