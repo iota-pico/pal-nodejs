@@ -1,3 +1,0 @@
-﻿var typedoc = typedoc || {};
-            typedoc.search = typedoc.search || {};
-            typedoc.search.data = {"kinds":{"128":"Class","512":"Constructor","2048":"Method"},"rows":[{"id":0,"kind":128,"name":"NodeJsNetworkClient","url":"classes/nodejsnetworkclient.html","classes":"tsd-kind-class"},{"id":1,"kind":512,"name":"constructor","url":"classes/nodejsnetworkclient.html#constructor","classes":"tsd-kind-constructor tsd-parent-kind-class","parent":"NodeJsNetworkClient"},{"id":2,"kind":2048,"name":"postJson","url":"classes/nodejsnetworkclient.html#postjson","classes":"tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter","parent":"NodeJsNetworkClient"}]};
