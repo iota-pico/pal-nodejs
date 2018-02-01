@@ -7,7 +7,7 @@
 
 ### Classes
 
-* [NodeJsNetworkClient](classes/nodejsnetworkclient.md)
+* [NetworkClient](classes/networkclient.md)
 
 
 

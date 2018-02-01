@@ -10,12 +10,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const coreError_1 = require("@iota-pico/core/dist/error/coreError");
 const http = __importStar(require("http"));
 /**
- * Default implementation of a node client.
+ * Implementation of a node client for use in NodeJS.
  * @interface
  */
-class NodeJsNetworkClient {
+class NetworkClient {
     /**
-     * Create an instance of NodeJsNetworkClient.
+     * Create an instance of NetworkClient.
      * @param networkEndPoint The endpoint to use for the client.
      */
     constructor(networkEndPoint) {
@@ -84,4 +84,4 @@ class NodeJsNetworkClient {
         });
     }
 }
-exports.NodeJsNetworkClient = NodeJsNetworkClient;
+exports.NetworkClient = NetworkClient;

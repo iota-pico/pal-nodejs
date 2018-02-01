@@ -1,11 +1,11 @@
-[@iota-pico/pal-nodejs](../README.md) > [NodeJsNetworkClient](../classes/nodejsnetworkclient.md)
+[@iota-pico/pal-nodejs](../README.md) > [NetworkClient](../classes/networkclient.md)
 
 
 
-# Class: NodeJsNetworkClient
+# Class: NetworkClient
 
 
-Default implementation of a node client.
+Implementation of a node client for use in NodeJS.
 *__interface__*: 
 
 
@@ -17,12 +17,12 @@ Default implementation of a node client.
 
 ### Constructors
 
-* [constructor](nodejsnetworkclient.md#constructor)
+* [constructor](networkclient.md#constructor)
 
 
 ### Methods
 
-* [postJson](nodejsnetworkclient.md#postjson)
+* [postJson](networkclient.md#postjson)
 
 
 
@@ -31,14 +31,14 @@ Default implementation of a node client.
 <a id="constructor"></a>
 
 
-### ⊕ **new NodeJsNetworkClient**(networkEndPoint: *`INetworkEndPoint`*): [NodeJsNetworkClient](nodejsnetworkclient.md)
+### ⊕ **new NetworkClient**(networkEndPoint: *`INetworkEndPoint`*): [NetworkClient](networkclient.md)
 
 
-*Defined in [network/nodeJsNetworkClient.ts:11](https://github.com/iotaeco/iota-pico-pal-nodejs/blob/05145fd/src/network/nodeJsNetworkClient.ts#L11)*
+*Defined in network/networkClient.ts:11*
 
 
 
-Create an instance of NodeJsNetworkClient.
+Create an instance of NetworkClient.
 
 
 **Parameters:**
@@ -51,7 +51,7 @@ Create an instance of NodeJsNetworkClient.
 
 
 
-**Returns:** [NodeJsNetworkClient](nodejsnetworkclient.md)
+**Returns:** [NetworkClient](networkclient.md)
 
 ---
 
@@ -65,7 +65,7 @@ Create an instance of NodeJsNetworkClient.
 
 
 
-*Defined in [network/nodeJsNetworkClient.ts:32](https://github.com/iotaeco/iota-pico-pal-nodejs/blob/05145fd/src/network/nodeJsNetworkClient.ts#L32)*
+*Defined in network/networkClient.ts:32*
 
 
 
