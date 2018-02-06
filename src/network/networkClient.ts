@@ -8,6 +8,7 @@ import * as http from "http";
  * @interface
  */
 export class NetworkClient implements INetworkClient {
+    /* @internal */
     private readonly _networkEndPoint: INetworkEndPoint;
 
     /**
