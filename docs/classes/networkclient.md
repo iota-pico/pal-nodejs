@@ -34,7 +34,7 @@ Implementation of a node client for use in NodeJS.
 ### ⊕ **new NetworkClient**(networkEndPoint: *`INetworkEndPoint`*): [NetworkClient](networkclient.md)
 
 
-*Defined in [network/networkClient.ts:12](https://github.com/iotaeco/iota-pico-pal-nodejs/blob/aeb2a98/src/network/networkClient.ts#L12)*
+*Defined in [network/networkClient.ts:12](https://github.com/iotaeco/iota-pico-pal-nodejs/blob/16e916e/src/network/networkClient.ts#L12)*
 
 
 
@@ -65,7 +65,7 @@ Create an instance of NetworkClient.
 
 
 
-*Defined in [network/networkClient.ts:33](https://github.com/iotaeco/iota-pico-pal-nodejs/blob/aeb2a98/src/network/networkClient.ts#L33)*
+*Defined in [network/networkClient.ts:33](https://github.com/iotaeco/iota-pico-pal-nodejs/blob/16e916e/src/network/networkClient.ts#L33)*
 
 
 
