@@ -23,6 +23,47 @@ export class NetworkClient implements INetworkClient {
     }
 
     /**
+     * Get data asynchronously.
+     * @param data The data to send.
+     * @param additionalHeaders Extra headers to send with the request.
+     * @returns Promise which resolves to the object returned or rejects with error.
+     */
+    public async get(additionalHeaders?: { [header: string]: string }): Promise<string> {
+        return this.doRequest("GET", undefined, additionalHeaders);
+    }
+
+    /**
+     * Post data asynchronously.
+     * @param data The data to send.
+     * @param additionalHeaders Extra headers to send with the request.
+     * @returns Promise which resolves to the object returned or rejects with error.
+     */
+    public async post(data: string, additionalHeaders?: { [header: string]: string }): Promise<string> {
+        return this.doRequest("POST", data, additionalHeaders);
+    }
+
+    /**
+     * Get data asynchronously.
+     * @typeparam U The generic type for the returned object.
+     * @param additionalHeaders Extra headers to send with the request.
+     * @returns Promise which resolves to the object returned or rejects with error.
+     */
+    public async getJson<U>(additionalHeaders?: { [header: string]: string }): Promise<U> {
+        return this.doRequest("GET", undefined, additionalHeaders)
+            .then((responseData) => {
+                try {
+                    const response = JSON.parse(responseData);
+                    return <U>response;
+                } catch (err) {
+                    throw(new CoreError("Failed POST request, unable to parse response", {
+                        endPoint: this._networkEndPoint.getUri(),
+                        response: responseData
+                    }));
+                }
+            });
+    }
+
+    /**
      * Post data asynchronously.
      * @typeparam T The generic type for the object to send.
      * @typeparam U The generic type for the returned object.
@@ -31,16 +72,34 @@ export class NetworkClient implements INetworkClient {
      * @returns Promise which resolves to the object returned or rejects with error.
      */
     public async postJson<T, U>(data: T, additionalHeaders?: { [header: string]: string }): Promise<U> {
-        return new Promise<U>((resolve, reject) => {
+        const headers = additionalHeaders || {};
+        headers["Content-Type"] = "application/json";
+
+        return this.doRequest("POST", JSON.stringify(data), additionalHeaders)
+            .then((responseData) => {
+                try {
+                    const response = JSON.parse(responseData);
+                    return <U>response;
+                } catch (err) {
+                    throw(new CoreError("Failed POST request, unable to parse response", {
+                        endPoint: this._networkEndPoint.getUri(),
+                        response: responseData
+                    }));
+                }
+            });
+    }
+
+    /* @internal */
+    private async doRequest(method: string, data: string, additionalHeaders?: { [header: string]: string }): Promise<string> {
+        return new Promise<string>((resolve, reject) => {
             const headers = additionalHeaders || {};
-            headers["Content-Type"] = "application/json";
 
             const options: http.RequestOptions = {
-                protocol: `${this._networkEndPoint.getProtocol()}:`,
+                protocol: this._networkEndPoint.getProtocol() ? `${this._networkEndPoint.getProtocol()}:` : undefined,
                 hostname: this._networkEndPoint.getHost(),
                 port: this._networkEndPoint.getPort(),
                 path: this._networkEndPoint.getPath(),
-                method: "POST",
+                method: method,
                 headers
             };
 
@@ -52,18 +111,9 @@ export class NetworkClient implements INetworkClient {
                 });
                 res.on("end", () => {
                     if (res.statusCode === 200) {
-                        try {
-                            const response = JSON.parse(responseData);
-                            resolve(response);
-                        } catch (err) {
-                            reject(new CoreError("Unsuccessful POST request, unable to parse response", {
-                                endPoint: this._networkEndPoint.getUri(),
-                                httpStatusCode: res.statusCode,
-                                response: responseData
-                            }));
-                        }
+                        resolve(responseData);
                     } else {
-                        reject(new CoreError("Unsuccessful POST request", {
+                        reject(new CoreError(`Failed ${method} request`, {
                             endPoint: this._networkEndPoint.getUri(),
                             httpStatusCode: res.statusCode,
                             response: responseData
@@ -72,12 +122,14 @@ export class NetworkClient implements INetworkClient {
                 });
             });
             req.on("error", (err) => {
-                reject(new CoreError("Unsuccessful POST request", {
+                reject(new CoreError(`Failed ${method} request`, {
                     endPoint: this._networkEndPoint.getUri(),
                     httpError: err
                 }));
             });
-            req.write(JSON.stringify(data));
+            if (data !== undefined && data !== null) {
+                req.write(data);
+            }
             req.end();
         });
     }

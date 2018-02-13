@@ -22,6 +22,9 @@ Implementation of a node client for use in NodeJS.
 
 ### Methods
 
+* [get](networkclient.md#get)
+* [getJson](networkclient.md#getjson)
+* [post](networkclient.md#post)
 * [postJson](networkclient.md#postjson)
 
 
@@ -34,7 +37,7 @@ Implementation of a node client for use in NodeJS.
 ### ⊕ **new NetworkClient**(networkEndPoint: *`INetworkEndPoint`*): [NetworkClient](networkclient.md)
 
 
-*Defined in [network/networkClient.ts:12](https://github.com/iotaeco/iota-pico-pal-nodejs/blob/1f97095/src/network/networkClient.ts#L12)*
+*Defined in [network/networkClient.ts:12](https://github.com/iotaeco/iota-pico-pal-nodejs/blob/d3d6b82/src/network/networkClient.ts#L12)*
 
 
 
@@ -57,6 +60,118 @@ Create an instance of NetworkClient.
 
 
 ## Methods
+<a id="get"></a>
+
+###  get
+
+► **get**(additionalHeaders?: *`object`*): `Promise`.<`string`>
+
+
+
+*Defined in [network/networkClient.ts:31](https://github.com/iotaeco/iota-pico-pal-nodejs/blob/d3d6b82/src/network/networkClient.ts#L31)*
+
+
+
+Get data asynchronously.
+
+
+**Parameters:**
+
+| Param | Type | Description |
+| ------ | ------ | ------ |
+| additionalHeaders | `object`   |  Extra headers to send with the request. |
+
+
+
+
+
+**Returns:** `Promise`.<`string`>
+Promise which resolves to the object returned or rejects with error.
+
+
+
+
+
+
+___
+
+<a id="getjson"></a>
+
+###  getJson
+
+► **getJson**U(additionalHeaders?: *`object`*): `Promise`.<`U`>
+
+
+
+*Defined in [network/networkClient.ts:51](https://github.com/iotaeco/iota-pico-pal-nodejs/blob/d3d6b82/src/network/networkClient.ts#L51)*
+
+
+
+Get data asynchronously.
+
+
+**Type parameters:**
+
+#### U 
+
+The generic type for the returned object.
+
+**Parameters:**
+
+| Param | Type | Description |
+| ------ | ------ | ------ |
+| additionalHeaders | `object`   |  Extra headers to send with the request. |
+
+
+
+
+
+**Returns:** `Promise`.<`U`>
+Promise which resolves to the object returned or rejects with error.
+
+
+
+
+
+
+___
+
+<a id="post"></a>
+
+###  post
+
+► **post**(data: *`string`*, additionalHeaders?: *`object`*): `Promise`.<`string`>
+
+
+
+*Defined in [network/networkClient.ts:41](https://github.com/iotaeco/iota-pico-pal-nodejs/blob/d3d6b82/src/network/networkClient.ts#L41)*
+
+
+
+Post data asynchronously.
+
+
+**Parameters:**
+
+| Param | Type | Description |
+| ------ | ------ | ------ |
+| data | `string`   |  The data to send. |
+| additionalHeaders | `object`   |  Extra headers to send with the request. |
+
+
+
+
+
+**Returns:** `Promise`.<`string`>
+Promise which resolves to the object returned or rejects with error.
+
+
+
+
+
+
+___
+
 <a id="postjson"></a>
 
 ###  postJson
@@ -65,7 +180,7 @@ Create an instance of NetworkClient.
 
 
 
-*Defined in [network/networkClient.ts:33](https://github.com/iotaeco/iota-pico-pal-nodejs/blob/1f97095/src/network/networkClient.ts#L33)*
+*Defined in [network/networkClient.ts:74](https://github.com/iotaeco/iota-pico-pal-nodejs/blob/d3d6b82/src/network/networkClient.ts#L74)*
 
 
 
