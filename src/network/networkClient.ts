@@ -1,4 +1,5 @@
 import { CoreError } from "@iota-pico/core/dist/error/coreError";
+import { NumberHelper } from "@iota-pico/core/dist/helpers/numberHelper";
 import { ObjectHelper } from "@iota-pico/core/dist/helpers/objectHelper";
 import { INetworkClient } from "@iota-pico/core/dist/interfaces/INetworkClient";
 import { INetworkEndPoint } from "@iota-pico/core/dist/interfaces/INetworkEndPoint";
@@ -11,16 +12,28 @@ import * as http from "http";
 export class NetworkClient implements INetworkClient {
     /* @internal */
     private readonly _networkEndPoint: INetworkEndPoint;
+    /* @internal */
+    private readonly _timeoutMs: number;
+
+    /* @internal */
+    private readonly _httpClientRequest: (options: http.RequestOptions | string | URL, callback?: (res: http.IncomingMessage) => void) => http.ClientRequest;
 
     /**
      * Create an instance of NetworkClient.
      * @param networkEndPoint The endpoint to use for the client.
+     * @param timeoutMs The timeout in ms before aborting.
      */
-    constructor(networkEndPoint: INetworkEndPoint) {
+    constructor(networkEndPoint: INetworkEndPoint, timeoutMs: number = 0,
+                httpClientRequest?: (options: http.RequestOptions | string | URL, callback?: (res: http.IncomingMessage) => void) => http.ClientRequest) {
         if (ObjectHelper.isEmpty(networkEndPoint)) {
             throw new CoreError("The networkEndPoint must be defined");
         }
+        if (!NumberHelper.isInteger(timeoutMs) || timeoutMs < 0) {
+            throw new CoreError("The timeoutMs must be >= 0");
+        }
         this._networkEndPoint = networkEndPoint;
+        this._timeoutMs = timeoutMs;
+        this._httpClientRequest = httpClientRequest || http.request;
     }
 
     /**
@@ -56,7 +69,7 @@ export class NetworkClient implements INetworkClient {
                     const response = JSON.parse(responseData);
                     return <U>response;
                 } catch (err) {
-                    throw(new CoreError("Failed POST request, unable to parse response", {
+                    throw(new CoreError("Failed GET request, unable to parse response", {
                         endPoint: this._networkEndPoint.getUri(),
                         response: responseData
                     }));
@@ -76,7 +89,7 @@ export class NetworkClient implements INetworkClient {
         const headers = additionalHeaders || {};
         headers["Content-Type"] = "application/json";
 
-        return this.doRequest("POST", JSON.stringify(data), additionalHeaders)
+        return this.doRequest("POST", JSON.stringify(data), headers)
             .then((responseData) => {
                 try {
                     const response = JSON.parse(responseData);
@@ -96,7 +109,7 @@ export class NetworkClient implements INetworkClient {
             const headers = additionalHeaders || {};
 
             const options: http.RequestOptions = {
-                protocol: this._networkEndPoint.getProtocol() ? `${this._networkEndPoint.getProtocol()}:` : undefined,
+                protocol: this._networkEndPoint.getProtocol(),
                 hostname: this._networkEndPoint.getHost(),
                 port: this._networkEndPoint.getPort(),
                 path: this._networkEndPoint.getPath(),
@@ -104,7 +117,11 @@ export class NetworkClient implements INetworkClient {
                 headers
             };
 
-            const req = http.request(options, (res) => {
+            if (this._timeoutMs > 0) {
+                options.timeout = this._timeoutMs;
+            }
+
+            const req = this._httpClientRequest(options, (res) => {
                 let responseData = "";
                 res.setEncoding("utf8");
                 res.on("data", (responseBody) => {
@@ -126,6 +143,11 @@ export class NetworkClient implements INetworkClient {
                 reject(new CoreError(`Failed ${method} request`, {
                     endPoint: this._networkEndPoint.getUri(),
                     httpError: err
+                }));
+            });
+            req.on("timeout", (err) => {
+                reject(new CoreError(`Failed ${method} request, timed out`, {
+                    endPoint: this._networkEndPoint.getUri()
                 }));
             });
             if (data !== undefined && data !== null) {

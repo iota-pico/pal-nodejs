@@ -1,5 +1,7 @@
+/// <reference types="node" />
 import { INetworkClient } from "@iota-pico/core/dist/interfaces/INetworkClient";
 import { INetworkEndPoint } from "@iota-pico/core/dist/interfaces/INetworkEndPoint";
+import * as http from "http";
 /**
  * Implementation of a node client for use in NodeJS.
  * @interface
@@ -8,8 +10,9 @@ export declare class NetworkClient implements INetworkClient {
     /**
      * Create an instance of NetworkClient.
      * @param networkEndPoint The endpoint to use for the client.
+     * @param timeoutMs The timeout in ms before aborting.
      */
-    constructor(networkEndPoint: INetworkEndPoint);
+    constructor(networkEndPoint: INetworkEndPoint, timeoutMs?: number, httpClientRequest?: (options: http.RequestOptions | string | URL, callback?: (res: http.IncomingMessage) => void) => http.ClientRequest);
     /**
      * Get data asynchronously.
      * @param data The data to send.

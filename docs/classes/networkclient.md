@@ -34,10 +34,10 @@ Implementation of a node client for use in NodeJS.
 <a id="constructor"></a>
 
 
-### ⊕ **new NetworkClient**(networkEndPoint: *`INetworkEndPoint`*): [NetworkClient](networkclient.md)
+### ⊕ **new NetworkClient**(networkEndPoint: *`INetworkEndPoint`*, timeoutMs?: *`number`*, httpClientRequest?: *`function`*): [NetworkClient](networkclient.md)
 
 
-*Defined in [network/networkClient.ts:13](https://github.com/iotaeco/iota-pico-pal-nodejs/blob/f3a4df2/src/network/networkClient.ts#L13)*
+*Defined in [network/networkClient.ts:19](https://github.com/iotaeco/iota-pico-pal-nodejs/blob/fba8b3c/src/network/networkClient.ts#L19)*
 
 
 
@@ -46,9 +46,11 @@ Create an instance of NetworkClient.
 
 **Parameters:**
 
-| Param | Type | Description |
-| ------ | ------ | ------ |
-| networkEndPoint | `INetworkEndPoint`   |  The endpoint to use for the client. |
+| Param | Type | Default value | Description |
+| ------ | ------ | ------ | ------ |
+| networkEndPoint | `INetworkEndPoint`  | - |   The endpoint to use for the client. |
+| timeoutMs | `number`  | 0 |   The timeout in ms before aborting. |
+| httpClientRequest | `function`  | - |   - |
 
 
 
@@ -68,7 +70,7 @@ Create an instance of NetworkClient.
 
 
 
-*Defined in [network/networkClient.ts:32](https://github.com/iotaeco/iota-pico-pal-nodejs/blob/f3a4df2/src/network/networkClient.ts#L32)*
+*Defined in [network/networkClient.ts:45](https://github.com/iotaeco/iota-pico-pal-nodejs/blob/fba8b3c/src/network/networkClient.ts#L45)*
 
 
 
@@ -103,7 +105,7 @@ ___
 
 
 
-*Defined in [network/networkClient.ts:52](https://github.com/iotaeco/iota-pico-pal-nodejs/blob/f3a4df2/src/network/networkClient.ts#L52)*
+*Defined in [network/networkClient.ts:65](https://github.com/iotaeco/iota-pico-pal-nodejs/blob/fba8b3c/src/network/networkClient.ts#L65)*
 
 
 
@@ -144,7 +146,7 @@ ___
 
 
 
-*Defined in [network/networkClient.ts:42](https://github.com/iotaeco/iota-pico-pal-nodejs/blob/f3a4df2/src/network/networkClient.ts#L42)*
+*Defined in [network/networkClient.ts:55](https://github.com/iotaeco/iota-pico-pal-nodejs/blob/fba8b3c/src/network/networkClient.ts#L55)*
 
 
 
@@ -180,7 +182,7 @@ ___
 
 
 
-*Defined in [network/networkClient.ts:75](https://github.com/iotaeco/iota-pico-pal-nodejs/blob/f3a4df2/src/network/networkClient.ts#L75)*
+*Defined in [network/networkClient.ts:88](https://github.com/iotaeco/iota-pico-pal-nodejs/blob/fba8b3c/src/network/networkClient.ts#L88)*
 
 
 
