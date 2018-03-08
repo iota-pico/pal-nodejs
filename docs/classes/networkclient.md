@@ -34,10 +34,10 @@ Implementation of a node client for use in NodeJS.
 <a id="constructor"></a>
 
 
-### ⊕ **new NetworkClient**(networkEndPoint: *`INetworkEndPoint`*, timeoutMs?: *`number`*, httpClientRequest?: *`function`*): [NetworkClient](networkclient.md)
+### ⊕ **new NetworkClient**(networkEndPoint: *`INetworkEndPoint`*, logger?: *`ILogger`*, timeoutMs?: *`number`*, httpClientRequest?: *`function`*): [NetworkClient](networkclient.md)
 
 
-*Defined in [network/networkClient.ts:19](https://github.com/iotaeco/iota-pico-pal-nodejs/blob/fba8b3c/src/network/networkClient.ts#L19)*
+*Defined in [network/networkClient.ts:25](https://github.com/iotaeco/iota-pico-pal-nodejs/blob/c6d9757/src/network/networkClient.ts#L25)*
 
 
 
@@ -49,6 +49,7 @@ Create an instance of NetworkClient.
 | Param | Type | Default value | Description |
 | ------ | ------ | ------ | ------ |
 | networkEndPoint | `INetworkEndPoint`  | - |   The endpoint to use for the client. |
+| logger | `ILogger`  | - |   Logger to send communication info to. |
 | timeoutMs | `number`  | 0 |   The timeout in ms before aborting. |
 | httpClientRequest | `function`  | - |   - |
 
@@ -66,11 +67,11 @@ Create an instance of NetworkClient.
 
 ###  get
 
-► **get**(additionalHeaders?: *`object`*): `Promise`.<`string`>
+► **get**(additionalPath?: *`string`*, additionalHeaders?: *`object`*): `Promise`.<`string`>
 
 
 
-*Defined in [network/networkClient.ts:45](https://github.com/iotaeco/iota-pico-pal-nodejs/blob/fba8b3c/src/network/networkClient.ts#L45)*
+*Defined in [network/networkClient.ts:55](https://github.com/iotaeco/iota-pico-pal-nodejs/blob/c6d9757/src/network/networkClient.ts#L55)*
 
 
 
@@ -81,6 +82,7 @@ Get data asynchronously.
 
 | Param | Type | Description |
 | ------ | ------ | ------ |
+| additionalPath | `string`   |  An additional path append to the endpoint path. |
 | additionalHeaders | `object`   |  Extra headers to send with the request. |
 
 
@@ -101,15 +103,15 @@ ___
 
 ###  getJson
 
-► **getJson**U(additionalHeaders?: *`object`*): `Promise`.<`U`>
+► **getJson**U(additionalPath?: *`string`*, additionalHeaders?: *`object`*): `Promise`.<`U`>
 
 
 
-*Defined in [network/networkClient.ts:65](https://github.com/iotaeco/iota-pico-pal-nodejs/blob/fba8b3c/src/network/networkClient.ts#L65)*
+*Defined in [network/networkClient.ts:77](https://github.com/iotaeco/iota-pico-pal-nodejs/blob/c6d9757/src/network/networkClient.ts#L77)*
 
 
 
-Get data asynchronously.
+Get data as JSON asynchronously.
 
 
 **Type parameters:**
@@ -122,6 +124,7 @@ The generic type for the returned object.
 
 | Param | Type | Description |
 | ------ | ------ | ------ |
+| additionalPath | `string`   |  An additional path append to the endpoint path. |
 | additionalHeaders | `object`   |  Extra headers to send with the request. |
 
 
@@ -142,11 +145,11 @@ ___
 
 ###  post
 
-► **post**(data: *`string`*, additionalHeaders?: *`object`*): `Promise`.<`string`>
+► **post**(data: *`string`*, additionalPath?: *`string`*, additionalHeaders?: *`object`*): `Promise`.<`string`>
 
 
 
-*Defined in [network/networkClient.ts:55](https://github.com/iotaeco/iota-pico-pal-nodejs/blob/fba8b3c/src/network/networkClient.ts#L55)*
+*Defined in [network/networkClient.ts:66](https://github.com/iotaeco/iota-pico-pal-nodejs/blob/c6d9757/src/network/networkClient.ts#L66)*
 
 
 
@@ -158,6 +161,7 @@ Post data asynchronously.
 | Param | Type | Description |
 | ------ | ------ | ------ |
 | data | `string`   |  The data to send. |
+| additionalPath | `string`   |  An additional path append to the endpoint path. |
 | additionalHeaders | `object`   |  Extra headers to send with the request. |
 
 
@@ -178,15 +182,15 @@ ___
 
 ###  postJson
 
-► **postJson**T,U(data: *`T`*, additionalHeaders?: *`object`*): `Promise`.<`U`>
+► **postJson**T,U(data: *`T`*, additionalPath?: *`string`*, additionalHeaders?: *`object`*): `Promise`.<`U`>
 
 
 
-*Defined in [network/networkClient.ts:88](https://github.com/iotaeco/iota-pico-pal-nodejs/blob/fba8b3c/src/network/networkClient.ts#L88)*
+*Defined in [network/networkClient.ts:101](https://github.com/iotaeco/iota-pico-pal-nodejs/blob/c6d9757/src/network/networkClient.ts#L101)*
 
 
 
-Post data asynchronously.
+Post data as JSON asynchronously.
 
 
 **Type parameters:**
@@ -204,6 +208,7 @@ The generic type for the returned object.
 | Param | Type | Description |
 | ------ | ------ | ------ |
 | data | `T`   |  The data to send. |
+| additionalPath | `string`   |  An additional path append to the endpoint path. |
 | additionalHeaders | `object`   |  Extra headers to send with the request. |
 
 
