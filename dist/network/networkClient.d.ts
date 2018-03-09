@@ -6,7 +6,6 @@ import * as http from "http";
 import * as https from "https";
 /**
  * Implementation of a node client for use in NodeJS.
- * @interface
  */
 export declare class NetworkClient implements INetworkClient {
     /**

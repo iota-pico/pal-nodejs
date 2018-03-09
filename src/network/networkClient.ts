@@ -11,7 +11,6 @@ import * as https from "https";
 
 /**
  * Implementation of a node client for use in NodeJS.
- * @interface
  */
 export class NetworkClient implements INetworkClient {
     /* @internal */
@@ -160,10 +159,10 @@ export class NetworkClient implements INetworkClient {
                 });
                 res.on("end", () => {
                     if (res.statusCode === 200) {
-                        this._logger.error("<=== Received", { data: responseData });
+                        this._logger.info("<=== Received", { data: responseData });
                         resolve(responseData);
                     } else {
-                        this._logger.error("<=== Received Fail", { code: res.statusCode, data: responseData });
+                        this._logger.info("<=== Received Fail", { code: res.statusCode, data: responseData });
                         reject(new CoreError(`Failed ${method} request`, {
                             endPoint: uri,
                             errorResponseCode: res.statusCode,

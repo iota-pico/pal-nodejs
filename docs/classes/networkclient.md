@@ -6,8 +6,6 @@
 
 
 Implementation of a node client for use in NodeJS.
-*__interface__*: 
-
 
 ## Implements
 
@@ -37,7 +35,7 @@ Implementation of a node client for use in NodeJS.
 ### ⊕ **new NetworkClient**(networkEndPoint: *`INetworkEndPoint`*, logger?: *`ILogger`*, timeoutMs?: *`number`*, httpClientRequest?: *`function`*): [NetworkClient](networkclient.md)
 
 
-*Defined in [network/networkClient.ts:25](https://github.com/iotaeco/iota-pico-pal-nodejs/blob/c6d9757/src/network/networkClient.ts#L25)*
+*Defined in [network/networkClient.ts:24](https://github.com/iotaeco/iota-pico-pal-nodejs/blob/e445181/src/network/networkClient.ts#L24)*
 
 
 
@@ -71,7 +69,7 @@ Create an instance of NetworkClient.
 
 
 
-*Defined in [network/networkClient.ts:55](https://github.com/iotaeco/iota-pico-pal-nodejs/blob/c6d9757/src/network/networkClient.ts#L55)*
+*Defined in [network/networkClient.ts:54](https://github.com/iotaeco/iota-pico-pal-nodejs/blob/e445181/src/network/networkClient.ts#L54)*
 
 
 
@@ -107,7 +105,7 @@ ___
 
 
 
-*Defined in [network/networkClient.ts:77](https://github.com/iotaeco/iota-pico-pal-nodejs/blob/c6d9757/src/network/networkClient.ts#L77)*
+*Defined in [network/networkClient.ts:82](https://github.com/iotaeco/iota-pico-pal-nodejs/blob/e445181/src/network/networkClient.ts#L82)*
 
 
 
@@ -149,7 +147,7 @@ ___
 
 
 
-*Defined in [network/networkClient.ts:66](https://github.com/iotaeco/iota-pico-pal-nodejs/blob/c6d9757/src/network/networkClient.ts#L66)*
+*Defined in [network/networkClient.ts:68](https://github.com/iotaeco/iota-pico-pal-nodejs/blob/e445181/src/network/networkClient.ts#L68)*
 
 
 
@@ -186,7 +184,7 @@ ___
 
 
 
-*Defined in [network/networkClient.ts:101](https://github.com/iotaeco/iota-pico-pal-nodejs/blob/c6d9757/src/network/networkClient.ts#L101)*
+*Defined in [network/networkClient.ts:109](https://github.com/iotaeco/iota-pico-pal-nodejs/blob/e445181/src/network/networkClient.ts#L109)*
 
 
 
