@@ -19,7 +19,6 @@ export class NetworkClient implements INetworkClient {
     private readonly _logger: ILogger;
     /* @internal */
     private readonly _timeoutMs: number;
-
     /* @internal */
     private readonly _httpClientRequest: (options: http.RequestOptions | https.RequestOptions | string | URL, callback?: (res: http.IncomingMessage) => void) => http.ClientRequest;
 
@@ -134,7 +133,7 @@ export class NetworkClient implements INetworkClient {
             const headers = additionalHeaders || {};
 
             let uri = this._networkEndPoint.getUri();
-            let path = this._networkEndPoint.getPath();
+            let path = this._networkEndPoint.getRootPath();
             if (!StringHelper.isEmpty(additionalPath)) {
                 const stripped = `/${additionalPath.replace(/^\/*/, "")}`;
                 path += stripped;
