@@ -28,7 +28,7 @@ module.exports = {
         },
         umdNamedDefine: true
     },
-    target: "web",
+    target: "node",
     externals: {
     },
     //mode: isProd ? "production" : "development",
@@ -71,6 +71,8 @@ module.exports = {
         console: false,
         global: false,
         process: false,
+        http: "empty",
+        https: "empty",
         __filename: false,
         __dirname: false,
         Buffer: false,
