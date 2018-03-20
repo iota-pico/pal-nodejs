@@ -3,7 +3,7 @@
     "version": "0.9.2",
     "description": "IOTA Pico Framework Platform Abstraction Layer for NodeJS",
     "typings": "dist/index.d.ts",
-    "main": "pkg/iota-pal-nodejs.js",
+    "main": "pkg/iota-pico-pal-nodejs.js",
     "module": "dist/index.js",
     "keywords": [
         "iota",
