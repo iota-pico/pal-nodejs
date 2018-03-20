@@ -25,7 +25,7 @@ Platform abstraction layer for NodeJS.
 
 
 
-*Defined in [pal.ts:15](https://github.com/iotaeco/iota-pico-pal-nodejs/blob/1d3d1f9/src/pal.ts#L15)*
+*Defined in [pal.ts:15](https://github.com/iotaeco/iota-pico-pal-nodejs/blob/f167b1c/src/pal.ts#L15)*
 
 
 
