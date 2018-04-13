@@ -35,7 +35,7 @@ Implementation of a platform crypto for use in NodeJS.
 ### ⊕ **new PlatformCrypto**(publicKey: *`string`*, privateKey?: *`string`*): [PlatformCrypto](platformcrypto.md)
 
 
-*Defined in crypto/platformCrypto.ts:14*
+*Defined in [crypto/platformCrypto.ts:14](https://github.com/iotaeco/iota-pico-pal-nodejs/blob/547cedf/src/crypto/platformCrypto.ts#L14)*
 
 
 
@@ -67,7 +67,7 @@ Create a new instance of PlatformCrypto.
 
 
 
-*Defined in crypto/platformCrypto.ts:48*
+*Defined in [crypto/platformCrypto.ts:48](https://github.com/iotaeco/iota-pico-pal-nodejs/blob/547cedf/src/crypto/platformCrypto.ts#L48)*
 
 
 
@@ -102,7 +102,7 @@ ___
 
 
 
-*Defined in crypto/platformCrypto.ts:31*
+*Defined in [crypto/platformCrypto.ts:31](https://github.com/iotaeco/iota-pico-pal-nodejs/blob/547cedf/src/crypto/platformCrypto.ts#L31)*
 
 
 
@@ -137,7 +137,7 @@ ___
 
 
 
-*Defined in crypto/platformCrypto.ts:65*
+*Defined in [crypto/platformCrypto.ts:65](https://github.com/iotaeco/iota-pico-pal-nodejs/blob/547cedf/src/crypto/platformCrypto.ts#L65)*
 
 
 
@@ -172,7 +172,7 @@ ___
 
 
 
-*Defined in crypto/platformCrypto.ts:83*
+*Defined in [crypto/platformCrypto.ts:83](https://github.com/iotaeco/iota-pico-pal-nodejs/blob/547cedf/src/crypto/platformCrypto.ts#L83)*
 
 
 

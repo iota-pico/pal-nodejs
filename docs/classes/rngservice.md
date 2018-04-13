@@ -29,7 +29,7 @@ Implementation of random number generation service.
 
 
 
-*Defined in [services/rngService.ts:13](https://github.com/iotaeco/iota-pico-pal-nodejs/blob/d241a72/src/services/rngService.ts#L13)*
+*Defined in [services/rngService.ts:13](https://github.com/iotaeco/iota-pico-pal-nodejs/blob/547cedf/src/services/rngService.ts#L13)*
 
 
 
