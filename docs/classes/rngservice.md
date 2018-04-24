@@ -1,11 +1,12 @@
 [@iota-pico/pal-nodejs](../README.md) > [RngService](../classes/rngservice.md)
 
-
-
 # Class: RngService
 
-
 Implementation of random number generation service.
+
+## Hierarchy
+
+**RngService**
 
 ## Implements
 
@@ -17,24 +18,19 @@ Implementation of random number generation service.
 
 * [generate](rngservice.md#generate)
 
-
-
 ---
+
 ## Methods
+
 <a id="generate"></a>
 
 ###  generate
 
-► **generate**(length: *`number`*): `Uint8Array`
+▸ **generate**(length: *`number`*): `Uint8Array`
 
-
-
-*Defined in [services/rngService.ts:13](https://github.com/iotaeco/iota-pico-pal-nodejs/blob/547cedf/src/services/rngService.ts#L13)*
-
-
+*Defined in [services/rngService.ts:13](https://github.com/iota-pico/pal-nodejs/blob/605d7df/src/services/rngService.ts#L13)*
 
 Generate an array of random numbers.
-
 
 **Parameters:**
 
@@ -42,18 +38,8 @@ Generate an array of random numbers.
 | ------ | ------ | ------ |
 | length | `number`   |  The number of numbers to generate. |
 
-
-
-
-
 **Returns:** `Uint8Array`
 Array of random number generators.
 
-
-
-
-
-
 ___
-
 

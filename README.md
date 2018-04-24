@@ -1,5 +1,5 @@
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/iotaeco/iota-pico-pal-nodejs/master/LICENSE) [![Build Status](https://travis-ci.org/iotaeco/iota-pico-pal-nodejs.svg?branch=master)](https://travis-ci.org/iotaeco/iota-pico-pal-nodejs) [![NSP Status](https://nodesecurity.io/orgs/iotaeco/projects/602662bb-bf71-4ba1-96c8-d6ae74085c09/badge)](https://nodesecurity.io/orgs/iotaeco/projects/602662bb-bf71-4ba1-96c8-d6ae74085c09)
-[![Coveralls](https://img.shields.io/coveralls/iotaeco/iota-pico-pal-nodejs.svg)](https://coveralls.io/github/iotaeco/iota-pico-pal-nodejs)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/https://github.com/iota-pico/pal-nodejs/master/LICENSE) [![Build Status](https://travis-ci.org/https://github.com/iota-pico/pal-nodejs.svg?branch=master)](https://travis-ci.org/https://github.com/iota-pico/pal-nodejs) [![NSP Status](https://nodesecurity.io/orgs/https://github.com/iota-pico/projects/a5fc4b22-6a67-4911-80d4-fc3ca4bbe45d/badge)](https://nodesecurity.io/orgs/https://github.com/iota-pico/projects/a5fc4b22-6a67-4911-80d4-fc3ca4bbe45d)
+[![Coveralls](https://img.shields.io/coveralls/https://github.com/iota-pico/pal-nodejs.svg)](https://coveralls.io/github/https://github.com/iota-pico/pal-nodejs)
 
 # IOTA Pico Framework Platform Abstraction Layer for NodeJS
 
@@ -20,8 +20,8 @@ Documentation for the code can be found in [docs](./docs/README.md) folder.
 The IOTA Pico Framework is a multi-layered set of object oriented JavaScript libraries for use with the IOTA tangle.
 
 If you don't want to use the layered versions of the libraries consider using the  ready bundled versions:
-* [@iota-pico/lib-browser](https://github.com/iotaeco/iota-pico-lib-browser)
-* [@iota-pico/lib-nodejs](https://github.com/iotaeco/iota-pico-lib-nodejs)
+* [@iota-pico/lib-browser](https://github.com/iota-pico/lib-browser)
+* [@iota-pico/lib-nodejs](https://github.com/iota-pico/lib-nodejs)
 
 Each layer is fully abstracted allowing you to replace components with your own implementations very easily.
 
@@ -29,7 +29,7 @@ The layered libraries are written in TypeScript so are all strongly typed. The m
 
 # Tutorials
 
-Some tutorials can be found in the following repo [@iota-pico/tutorials](https://github.com/iotaeco/iota-pico-tutorials)
+Some tutorials can be found in the following repo [@iota-pico/tutorials](https://github.com/iota-pico/tutorials)
 
 # Contributing
 

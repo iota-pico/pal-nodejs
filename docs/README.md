@@ -1,6 +1,4 @@
 
-
-
 #  @iota-pico/pal-nodejs
 
 ## Index
@@ -12,6 +10,5 @@
 * [PlatformCrypto](classes/platformcrypto.md)
 * [RngService](classes/rngservice.md)
 
-
-
 ---
+
