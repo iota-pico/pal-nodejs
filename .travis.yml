@@ -3,8 +3,8 @@ node_js:
   - "node"
 install:
   - cd ../../
-  - git clone --branch=$TRAVIS_BRANCH https://github.com/iota-pico/core.git core
-  - cd core
+  - git clone --branch=$TRAVIS_BRANCH https://github.com/iota-pico/core.git iota-pico/core
+  - cd iota-pico/core
   - npm link
   - cd ../pal-nodejs
   - npm link @iota-pico/core
