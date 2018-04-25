@@ -4,6 +4,8 @@
 
 * Added RngService implementation
 * Added PlatformCrypto implementation
+* Repo rename
+* Updated webpack major ver
 
 ## v0.9.2
 

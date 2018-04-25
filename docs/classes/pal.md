@@ -24,7 +24,7 @@ Platform abstraction layer for NodeJS.
 
 ▸ **initialize**(): `Promise`.<`void`>
 
-*Defined in [pal.ts:20](https://github.com/iota-pico/pal-nodejs/blob/605d7df/src/pal.ts#L20)*
+*Defined in [pal.ts:20](https://github.com/iota-pico/pal-nodejs/blob/ddbcf7f/src/pal.ts#L20)*
 
 Perform any initialization for the PAL.
 
