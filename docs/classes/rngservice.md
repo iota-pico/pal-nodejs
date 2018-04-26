@@ -28,7 +28,7 @@ Implementation of random number generation service.
 
 ▸ **generate**(length: *`number`*): `Uint8Array`
 
-*Defined in [services/rngService.ts:13](https://github.com/iota-pico/pal-nodejs/blob/ddbcf7f/src/services/rngService.ts#L13)*
+*Defined in [services/rngService.ts:13](https://github.com/iota-pico/pal-nodejs/blob/3740e20/src/services/rngService.ts#L13)*
 
 Generate an array of random numbers.
 

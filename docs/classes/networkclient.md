@@ -20,6 +20,7 @@ Implementation of a node client for use in NodeJS.
 
 ### Methods
 
+* [doRequest](networkclient.md#dorequest)
 * [get](networkclient.md#get)
 * [getJson](networkclient.md#getjson)
 * [post](networkclient.md#post)
@@ -33,7 +34,7 @@ Implementation of a node client for use in NodeJS.
 
 ### ⊕ **new NetworkClient**(networkEndPoint: *`INetworkEndPoint`*, logger?: *`ILogger`*, timeoutMs?: *`number`*, httpClientRequest?: *`function`*): [NetworkClient](networkclient.md)
 
-*Defined in [network/networkClient.ts:23](https://github.com/iota-pico/pal-nodejs/blob/ddbcf7f/src/network/networkClient.ts#L23)*
+*Defined in [network/networkClient.ts:23](https://github.com/iota-pico/pal-nodejs/blob/3740e20/src/network/networkClient.ts#L23)*
 
 Create an instance of NetworkClient.
 
@@ -44,7 +45,7 @@ Create an instance of NetworkClient.
 | networkEndPoint | `INetworkEndPoint`  | - |   The endpoint to use for the client. |
 | logger | `ILogger`  | - |   Logger to send communication info to. |
 | timeoutMs | `number`  | 0 |   The timeout in ms before aborting. |
-| httpClientRequest | `function`  | - |   - |
+| httpClientRequest | `function`  | - |   The client request object, usually not required. |
 
 **Returns:** [NetworkClient](networkclient.md)
 
@@ -52,13 +53,37 @@ Create an instance of NetworkClient.
 
 ## Methods
 
+<a id="dorequest"></a>
+
+###  doRequest
+
+▸ **doRequest**(method: *`string`*, data: *`string`*, additionalPath?: *`string`*, additionalHeaders?: *`object`*): `Promise`.<`string`>
+
+*Defined in [network/networkClient.ts:139](https://github.com/iota-pico/pal-nodejs/blob/3740e20/src/network/networkClient.ts#L139)*
+
+Perform a request asynchronously.
+
+**Parameters:**
+
+| Param | Type | Description |
+| ------ | ------ | ------ |
+| method | `string`   |  The method to send the data with. |
+| data | `string`   |  The data to send. |
+| additionalPath | `string`   |  An additional path append to the endpoint path. |
+| additionalHeaders | `object`   |  Extra headers to send with the request. |
+
+**Returns:** `Promise`.<`string`>
+Promise which resolves to the object returned or rejects with error.
+
+___
+
 <a id="get"></a>
 
 ###  get
 
 ▸ **get**(additionalPath?: *`string`*, additionalHeaders?: *`object`*): `Promise`.<`string`>
 
-*Defined in [network/networkClient.ts:53](https://github.com/iota-pico/pal-nodejs/blob/ddbcf7f/src/network/networkClient.ts#L53)*
+*Defined in [network/networkClient.ts:54](https://github.com/iota-pico/pal-nodejs/blob/3740e20/src/network/networkClient.ts#L54)*
 
 Get data asynchronously.
 
@@ -80,7 +105,7 @@ ___
 
 ▸ **getJson**U(additionalPath?: *`string`*, additionalHeaders?: *`object`*): `Promise`.<`U`>
 
-*Defined in [network/networkClient.ts:81](https://github.com/iota-pico/pal-nodejs/blob/ddbcf7f/src/network/networkClient.ts#L81)*
+*Defined in [network/networkClient.ts:82](https://github.com/iota-pico/pal-nodejs/blob/3740e20/src/network/networkClient.ts#L82)*
 
 Get data as JSON asynchronously.
 
@@ -108,7 +133,7 @@ ___
 
 ▸ **post**(data: *`string`*, additionalPath?: *`string`*, additionalHeaders?: *`object`*): `Promise`.<`string`>
 
-*Defined in [network/networkClient.ts:67](https://github.com/iota-pico/pal-nodejs/blob/ddbcf7f/src/network/networkClient.ts#L67)*
+*Defined in [network/networkClient.ts:68](https://github.com/iota-pico/pal-nodejs/blob/3740e20/src/network/networkClient.ts#L68)*
 
 Post data asynchronously.
 
@@ -131,7 +156,7 @@ ___
 
 ▸ **postJson**T,U(data: *`T`*, additionalPath?: *`string`*, additionalHeaders?: *`object`*): `Promise`.<`U`>
 
-*Defined in [network/networkClient.ts:108](https://github.com/iota-pico/pal-nodejs/blob/ddbcf7f/src/network/networkClient.ts#L108)*
+*Defined in [network/networkClient.ts:109](https://github.com/iota-pico/pal-nodejs/blob/3740e20/src/network/networkClient.ts#L109)*
 
 Post data as JSON asynchronously.
 

@@ -27,6 +27,7 @@ export class NetworkClient implements INetworkClient {
      * @param networkEndPoint The endpoint to use for the client.
      * @param logger Logger to send communication info to.
      * @param timeoutMs The timeout in ms before aborting.
+     * @param httpClientRequest The client request object, usually not required.
      */
     constructor(networkEndPoint: INetworkEndPoint, logger?: ILogger, timeoutMs: number = 0,
                 httpClientRequest?: (options: http.RequestOptions | https.RequestOptions | string | URL, callback?: (res: http.IncomingMessage) => void) => http.ClientRequest) {
@@ -59,8 +60,8 @@ export class NetworkClient implements INetworkClient {
 
     /**
      * Post data asynchronously.
-     * @param additionalPath An additional path append to the endpoint path.
      * @param data The data to send.
+     * @param additionalPath An additional path append to the endpoint path.
      * @param additionalHeaders Extra headers to send with the request.
      * @returns Promise which resolves to the object returned or rejects with error.
      */
@@ -127,8 +128,15 @@ export class NetworkClient implements INetworkClient {
             });
     }
 
-    /* @internal */
-    private async doRequest(method: string, data: string, additionalPath?: string, additionalHeaders?: { [header: string]: string }): Promise<string> {
+    /**
+     * Perform a request asynchronously.
+     * @param method The method to send the data with.
+     * @param data The data to send.
+     * @param additionalPath An additional path append to the endpoint path.
+     * @param additionalHeaders Extra headers to send with the request.
+     * @returns Promise which resolves to the object returned or rejects with error.
+     */
+    public async doRequest(method: string, data: string, additionalPath?: string, additionalHeaders?: { [header: string]: string }): Promise<string> {
         return new Promise<string>((resolve, reject) => {
             const headers = additionalHeaders || {};
 
