@@ -1,5 +1,5 @@
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/https://github.com/iota-pico/pal-nodejs/master/LICENSE) [![Build Status](https://travis-ci.org/https://github.com/iota-pico/pal-nodejs.svg?branch=master)](https://travis-ci.org/https://github.com/iota-pico/pal-nodejs) [![NSP Status](https://nodesecurity.io/orgs/https://github.com/iota-pico/projects/a5fc4b22-6a67-4911-80d4-fc3ca4bbe45d/badge)](https://nodesecurity.io/orgs/https://github.com/iota-pico/projects/a5fc4b22-6a67-4911-80d4-fc3ca4bbe45d)
-[![Coveralls](https://img.shields.io/coveralls/https://github.com/iota-pico/pal-nodejs.svg)](https://coveralls.io/github/https://github.com/iota-pico/pal-nodejs)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/iota-pico/pal-nodejs/master/LICENSE) [![Build Status](https://travis-ci.org/iota-pico/pal-nodejs.svg?branch=master)](https://travis-ci.org/iota-pico/pal-nodejs) [![NSP Status](https://nodesecurity.io/orgs/iota-pico/projects/a5fc4b22-6a67-4911-80d4-fc3ca4bbe45d/badge)](https://nodesecurity.io/orgs/iota-pico/projects/a5fc4b22-6a67-4911-80d4-fc3ca4bbe45d)
+[![Coveralls](https://img.shields.io/coveralls/iota-pico/pal-nodejs.svg)](https://coveralls.io/github/iota-pico/pal-nodejs)
 
 # IOTA Pico Framework Platform Abstraction Layer for NodeJS
 

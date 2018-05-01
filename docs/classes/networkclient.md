@@ -32,9 +32,11 @@ Implementation of a node client for use in NodeJS.
 
 <a id="constructor"></a>
 
-### ⊕ **new NetworkClient**(networkEndPoint: *`INetworkEndPoint`*, logger?: *`ILogger`*, timeoutMs?: *`number`*, httpClientRequest?: *`function`*): [NetworkClient](networkclient.md)
+###  constructor
 
-*Defined in [network/networkClient.ts:23](https://github.com/iota-pico/pal-nodejs/blob/3740e20/src/network/networkClient.ts#L23)*
+⊕ **new NetworkClient**(networkEndPoint: *`INetworkEndPoint`*, logger?: *`ILogger`*, timeoutMs?: *`number`*, httpClientRequest?: *`function`*): [NetworkClient](networkclient.md)
+
+*Defined in [network/networkClient.ts:23](https://github.com/iota-pico/pal-nodejs/blob/d229982/src/network/networkClient.ts#L23)*
 
 Create an instance of NetworkClient.
 
@@ -42,14 +44,14 @@ Create an instance of NetworkClient.
 
 | Param | Type | Default value | Description |
 | ------ | ------ | ------ | ------ |
-| networkEndPoint | `INetworkEndPoint`  | - |   The endpoint to use for the client. |
-| logger | `ILogger`  | - |   Logger to send communication info to. |
-| timeoutMs | `number`  | 0 |   The timeout in ms before aborting. |
-| httpClientRequest | `function`  | - |   The client request object, usually not required. |
+| networkEndPoint | `INetworkEndPoint` | - |  The endpoint to use for the client. |
+| `Optional` logger | `ILogger` | - |  Logger to send communication info to. |
+| `Default value` timeoutMs | `number` | 0 |  The timeout in ms before aborting. |
+| `Optional` httpClientRequest | `function` | - |  The client request object, usually not required. |
 
 **Returns:** [NetworkClient](networkclient.md)
 
----
+___
 
 ## Methods
 
@@ -57,9 +59,9 @@ Create an instance of NetworkClient.
 
 ###  doRequest
 
-▸ **doRequest**(method: *`string`*, data: *`string`*, additionalPath?: *`string`*, additionalHeaders?: *`object`*): `Promise`.<`string`>
+▸ **doRequest**(method: *`string`*, data: *`string`*, additionalPath?: *`string`*, additionalHeaders?: *`object`*): `Promise`<`string`>
 
-*Defined in [network/networkClient.ts:139](https://github.com/iota-pico/pal-nodejs/blob/3740e20/src/network/networkClient.ts#L139)*
+*Defined in [network/networkClient.ts:139](https://github.com/iota-pico/pal-nodejs/blob/d229982/src/network/networkClient.ts#L139)*
 
 Perform a request asynchronously.
 
@@ -67,23 +69,22 @@ Perform a request asynchronously.
 
 | Param | Type | Description |
 | ------ | ------ | ------ |
-| method | `string`   |  The method to send the data with. |
-| data | `string`   |  The data to send. |
-| additionalPath | `string`   |  An additional path append to the endpoint path. |
-| additionalHeaders | `object`   |  Extra headers to send with the request. |
+| method | `string` |  The method to send the data with. |
+| data | `string` |  The data to send. |
+| `Optional` additionalPath | `string` |  An additional path append to the endpoint path. |
+| `Optional` additionalHeaders | `object` |  Extra headers to send with the request. |
 
-**Returns:** `Promise`.<`string`>
+**Returns:** `Promise`<`string`>
 Promise which resolves to the object returned or rejects with error.
 
 ___
-
 <a id="get"></a>
 
 ###  get
 
-▸ **get**(additionalPath?: *`string`*, additionalHeaders?: *`object`*): `Promise`.<`string`>
+▸ **get**(additionalPath?: *`string`*, additionalHeaders?: *`object`*): `Promise`<`string`>
 
-*Defined in [network/networkClient.ts:54](https://github.com/iota-pico/pal-nodejs/blob/3740e20/src/network/networkClient.ts#L54)*
+*Defined in [network/networkClient.ts:54](https://github.com/iota-pico/pal-nodejs/blob/d229982/src/network/networkClient.ts#L54)*
 
 Get data asynchronously.
 
@@ -91,21 +92,20 @@ Get data asynchronously.
 
 | Param | Type | Description |
 | ------ | ------ | ------ |
-| additionalPath | `string`   |  An additional path append to the endpoint path. |
-| additionalHeaders | `object`   |  Extra headers to send with the request. |
+| `Optional` additionalPath | `string` |  An additional path append to the endpoint path. |
+| `Optional` additionalHeaders | `object` |  Extra headers to send with the request. |
 
-**Returns:** `Promise`.<`string`>
+**Returns:** `Promise`<`string`>
 Promise which resolves to the object returned or rejects with error.
 
 ___
-
 <a id="getjson"></a>
 
 ###  getJson
 
-▸ **getJson**U(additionalPath?: *`string`*, additionalHeaders?: *`object`*): `Promise`.<`U`>
+▸ **getJson**U(additionalPath?: *`string`*, additionalHeaders?: *`object`*): `Promise`<`U`>
 
-*Defined in [network/networkClient.ts:82](https://github.com/iota-pico/pal-nodejs/blob/3740e20/src/network/networkClient.ts#L82)*
+*Defined in [network/networkClient.ts:82](https://github.com/iota-pico/pal-nodejs/blob/d229982/src/network/networkClient.ts#L82)*
 
 Get data as JSON asynchronously.
 
@@ -119,21 +119,20 @@ The generic type for the returned object.
 
 | Param | Type | Description |
 | ------ | ------ | ------ |
-| additionalPath | `string`   |  An additional path append to the endpoint path. |
-| additionalHeaders | `object`   |  Extra headers to send with the request. |
+| `Optional` additionalPath | `string` |  An additional path append to the endpoint path. |
+| `Optional` additionalHeaders | `object` |  Extra headers to send with the request. |
 
-**Returns:** `Promise`.<`U`>
+**Returns:** `Promise`<`U`>
 Promise which resolves to the object returned or rejects with error.
 
 ___
-
 <a id="post"></a>
 
 ###  post
 
-▸ **post**(data: *`string`*, additionalPath?: *`string`*, additionalHeaders?: *`object`*): `Promise`.<`string`>
+▸ **post**(data: *`string`*, additionalPath?: *`string`*, additionalHeaders?: *`object`*): `Promise`<`string`>
 
-*Defined in [network/networkClient.ts:68](https://github.com/iota-pico/pal-nodejs/blob/3740e20/src/network/networkClient.ts#L68)*
+*Defined in [network/networkClient.ts:68](https://github.com/iota-pico/pal-nodejs/blob/d229982/src/network/networkClient.ts#L68)*
 
 Post data asynchronously.
 
@@ -141,22 +140,21 @@ Post data asynchronously.
 
 | Param | Type | Description |
 | ------ | ------ | ------ |
-| data | `string`   |  The data to send. |
-| additionalPath | `string`   |  An additional path append to the endpoint path. |
-| additionalHeaders | `object`   |  Extra headers to send with the request. |
+| data | `string` |  The data to send. |
+| `Optional` additionalPath | `string` |  An additional path append to the endpoint path. |
+| `Optional` additionalHeaders | `object` |  Extra headers to send with the request. |
 
-**Returns:** `Promise`.<`string`>
+**Returns:** `Promise`<`string`>
 Promise which resolves to the object returned or rejects with error.
 
 ___
-
 <a id="postjson"></a>
 
 ###  postJson
 
-▸ **postJson**T,U(data: *`T`*, additionalPath?: *`string`*, additionalHeaders?: *`object`*): `Promise`.<`U`>
+▸ **postJson**T,U(data: *`T`*, additionalPath?: *`string`*, additionalHeaders?: *`object`*): `Promise`<`U`>
 
-*Defined in [network/networkClient.ts:109](https://github.com/iota-pico/pal-nodejs/blob/3740e20/src/network/networkClient.ts#L109)*
+*Defined in [network/networkClient.ts:109](https://github.com/iota-pico/pal-nodejs/blob/d229982/src/network/networkClient.ts#L109)*
 
 Post data as JSON asynchronously.
 
@@ -174,11 +172,11 @@ The generic type for the returned object.
 
 | Param | Type | Description |
 | ------ | ------ | ------ |
-| data | `T`   |  The data to send. |
-| additionalPath | `string`   |  An additional path append to the endpoint path. |
-| additionalHeaders | `object`   |  Extra headers to send with the request. |
+| data | `T` |  The data to send. |
+| `Optional` additionalPath | `string` |  An additional path append to the endpoint path. |
+| `Optional` additionalHeaders | `object` |  Extra headers to send with the request. |
 
-**Returns:** `Promise`.<`U`>
+**Returns:** `Promise`<`U`>
 Promise which resolves to the object returned or rejects with error.
 
 ___

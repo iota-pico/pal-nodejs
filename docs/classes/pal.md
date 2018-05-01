@@ -22,13 +22,13 @@ Platform abstraction layer for NodeJS.
 
 ### `<Static>` initialize
 
-▸ **initialize**(): `Promise`.<`void`>
+▸ **initialize**(): `Promise`<`void`>
 
-*Defined in [pal.ts:21](https://github.com/iota-pico/pal-nodejs/blob/3740e20/src/pal.ts#L21)*
+*Defined in [pal.ts:21](https://github.com/iota-pico/pal-nodejs/blob/d229982/src/pal.ts#L21)*
 
 Perform any initialization for the PAL.
 
-**Returns:** `Promise`.<`void`>
+**Returns:** `Promise`<`void`>
 Promise.
 
 ___
