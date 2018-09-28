@@ -2,6 +2,7 @@
 import { ILogger } from "@iota-pico/core/dist/interfaces/ILogger";
 import { INetworkClient } from "@iota-pico/core/dist/interfaces/INetworkClient";
 import { INetworkEndPoint } from "@iota-pico/core/dist/interfaces/INetworkEndPoint";
+import { NetworkMethod } from "@iota-pico/core/dist/interfaces/networkMethod";
 import * as http from "http";
 import * as https from "https";
 /**
@@ -18,11 +19,14 @@ export declare class NetworkClient implements INetworkClient {
     constructor(networkEndPoint: INetworkEndPoint, logger?: ILogger, timeoutMs?: number, httpClientRequest?: (options: http.RequestOptions | https.RequestOptions | string | URL, callback?: (res: http.IncomingMessage) => void) => http.ClientRequest);
     /**
      * Get data asynchronously.
+     * @param data The data to send.
      * @param additionalPath An additional path append to the endpoint path.
      * @param additionalHeaders Extra headers to send with the request.
      * @returns Promise which resolves to the object returned or rejects with error.
      */
-    get(additionalPath?: string, additionalHeaders?: {
+    get(data: {
+        [key: string]: any;
+    }, additionalPath?: string, additionalHeaders?: {
         [header: string]: string;
     }): Promise<string>;
     /**
@@ -36,25 +40,16 @@ export declare class NetworkClient implements INetworkClient {
         [header: string]: string;
     }): Promise<string>;
     /**
-     * Get data as JSON asynchronously.
-     * @typeparam U The generic type for the returned object.
-     * @param additionalPath An additional path append to the endpoint path.
-     * @param additionalHeaders Extra headers to send with the request.
-     * @returns Promise which resolves to the object returned or rejects with error.
-     */
-    getJson<U>(additionalPath?: string, additionalHeaders?: {
-        [header: string]: string;
-    }): Promise<U>;
-    /**
-     * Post data as JSON asynchronously.
+     * Request data as JSON asynchronously.
      * @typeparam T The generic type for the object to send.
      * @typeparam U The generic type for the returned object.
-     * @param data The data to send.
+     * @param data The data to send as the JSON body.
+     * @param method The method to send with the request.
      * @param additionalPath An additional path append to the endpoint path.
      * @param additionalHeaders Extra headers to send with the request.
      * @returns Promise which resolves to the object returned or rejects with error.
      */
-    postJson<T, U>(data: T, additionalPath?: string, additionalHeaders?: {
+    json<T, U>(data?: T, method?: NetworkMethod, additionalPath?: string, additionalHeaders?: {
         [header: string]: string;
     }): Promise<U>;
     /**

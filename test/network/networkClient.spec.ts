@@ -10,7 +10,7 @@ describe("NetworkClient", () => {
     let httpClientRequestMock: (options: http.RequestOptions | string | URL, callback?: (res: http.IncomingMessage) => void) => http.ClientRequest;
     let responseText: string;
     let statusCode: number;
-    let callBacks: { [name: string]: (data: any) => {}} = {};
+    let callBacks: { [name: string]: (data: any) => {} } = {};
     let requestOptions: http.RequestOptions;
     let triggerTimeout: boolean;
 
@@ -22,7 +22,7 @@ describe("NetworkClient", () => {
         httpClientRequestMock = (options: http.RequestOptions | string | URL, callback?: (res: http.IncomingMessage) => void) => {
             requestOptions = options;
             const responseObject = {
-                setEncoding: () => {},
+                setEncoding: () => { },
                 on: (name: string, cb2: (data: any) => {}) => {
                     callBacks[name] = cb2;
                 },
@@ -39,30 +39,38 @@ describe("NetworkClient", () => {
                 end: () => {
                     if (triggerTimeout) {
                         if (callBacks.timeout) {
-                            setTimeout(() => {
-                                callBacks.timeout("err!");
-                            },         10);
+                            setTimeout(
+                                () => {
+                                    callBacks.timeout("err!");
+                                },
+                                10);
                         }
                     }
                     if (responseText === null) {
                         if (callBacks.error) {
-                            setTimeout(() => {
-                                callBacks.error("err!");
-                            },         10);
+                            setTimeout(
+                                () => {
+                                    callBacks.error("err!");
+                                },
+                                10);
                         }
                     } else {
                         if (callBacks.data) {
-                            setTimeout(() => {
-                                callBacks.data(responseText);
-                            },         1);
+                            setTimeout(
+                                () => {
+                                    callBacks.data(responseText);
+                                },
+                                1);
                         }
                     }
 
                     if (callBacks.end) {
-                        setTimeout(() => {
-                            responseObject.statusCode = statusCode;
-                            callBacks.end(responseText);
-                        },         10);
+                        setTimeout(
+                            () => {
+                                responseObject.statusCode = statusCode;
+                                callBacks.end(responseText);
+                            },
+                            10);
                     }
                 }
             };
@@ -98,7 +106,7 @@ describe("NetworkClient", () => {
         it("can get data with headers", async () => {
             const obj = new NetworkClient(new NetworkEndPoint("http", "localhost", 14265), undefined, 0, httpClientRequestMock);
             responseText = "foo";
-            const ret = await obj.get(undefined, { bar: "123" });
+            const ret = await obj.get(undefined, undefined, { bar: "123" });
             chai.expect(ret).to.be.equal("foo");
             chai.expect(requestOptions.headers.bar).to.be.equal("123");
         });
@@ -107,7 +115,7 @@ describe("NetworkClient", () => {
             const obj = new NetworkClient(new NetworkEndPoint("http", "localhost", 14265), undefined, 0, httpClientRequestMock);
             responseText = null;
             try {
-                await obj.get(undefined, { bar: "123" });
+                await obj.get(undefined, undefined, { bar: "123" });
                 chai.assert("should not be here");
             } catch (err) {
                 chai.expect(err.message).to.contain("Failed GET request");
@@ -139,8 +147,26 @@ describe("NetworkClient", () => {
         it("can get with additional path", async () => {
             const obj = new NetworkClient(new NetworkEndPoint("http", "localhost", 14265, "//pop//"), undefined, 0, httpClientRequestMock);
             responseText = "foo";
-            await obj.get("////path", { bar: "123" });
+            await obj.get(undefined, "////path", { bar: "123" });
             chai.expect(requestOptions.path).to.contain("pop/path");
+        });
+
+        it("can get with empty parameters", async () => {
+            const obj = new NetworkClient(new NetworkEndPoint("http", "localhost", 14265, "//pop//"), undefined, 0, httpClientRequestMock);
+            responseText = "foo";
+            await obj.get({});
+            chai.expect(requestOptions.path).to.be.equal("pop");
+        });
+
+        it("can get with parameters", async () => {
+            const obj = new NetworkClient(new NetworkEndPoint("http", "localhost", 14265, "//pop//"), undefined, 0, httpClientRequestMock);
+            responseText = "foo";
+            await obj.get({
+                "a param": 2,
+                "b param": true,
+                "c param": null
+            });
+            chai.expect(requestOptions.path).to.be.equal("pop?a%20param=2&b%20param=true&c%20param=");
         });
     });
 
@@ -183,11 +209,11 @@ describe("NetworkClient", () => {
         });
     });
 
-    describe("getJson", () => {
+    describe("json", () => {
         it("can get data", async () => {
             const obj = new NetworkClient(new NetworkEndPoint("http", "localhost", 14265), undefined, 0, httpClientRequestMock);
             responseText = "{ \"foo\": 123 }";
-            const ret = await obj.getJson();
+            const ret = await obj.json(undefined, "GET");
             chai.expect(ret).to.be.deep.equal({ foo: 123 });
         });
 
@@ -195,7 +221,7 @@ describe("NetworkClient", () => {
             const obj = new NetworkClient(new NetworkEndPoint("http", "localhost", 14265), undefined, 0, httpClientRequestMock);
             responseText = "!";
             try {
-                await obj.getJson();
+                await obj.json(undefined, "GET");
                 chai.assert("should not be here");
             } catch (err) {
                 chai.expect(err.message).to.contain("Failed GET request, unable to parse response");
@@ -203,11 +229,11 @@ describe("NetworkClient", () => {
         });
     });
 
-    describe("postJson", () => {
+    describe("json", () => {
         it("can post data", async () => {
             const obj = new NetworkClient(new NetworkEndPoint("http", "localhost", 14265), undefined, 0, httpClientRequestMock);
             responseText = "{ \"foo\": 123 }";
-            const ret = await obj.postJson({ bar: true });
+            const ret = await obj.json({ bar: true }, "POST");
             chai.expect(ret).to.be.deep.equal({ foo: 123 });
             chai.expect(requestOptions.headers["Content-Type"]).to.be.equal("application/json");
         });
@@ -216,7 +242,7 @@ describe("NetworkClient", () => {
             const obj = new NetworkClient(new NetworkEndPoint("http", "localhost", 14265), undefined, 0, httpClientRequestMock);
             responseText = "!";
             try {
-                await obj.postJson({ bar: true });
+                await obj.json({ bar: true }, "POST");
                 chai.assert("should not be here");
             } catch (err) {
                 chai.expect(err.message).to.contain("Failed POST request, unable to parse response");
