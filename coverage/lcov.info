@@ -1,5 +1,5 @@
 TN:
-SF:D:\Workarea\iota-pico\pal-nodejs\src\index.ts
+SF:D:\Workarea\iota.eco\iota-pico\pal-nodejs\src\index.ts
 FNF:0
 FNH:0
 LF:0
@@ -8,7 +8,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:D:\Workarea\iota-pico\pal-nodejs\src\pal.ts
+SF:D:\Workarea\iota.eco\iota-pico\pal-nodejs\src\pal.ts
 FN:21,(anonymous_0)
 FN:24,(anonymous_1)
 FN:25,(anonymous_2)
@@ -41,7 +41,7 @@ BRF:2
 BRH:2
 end_of_record
 TN:
-SF:D:\Workarea\iota-pico\pal-nodejs\src\crypto\platformCrypto.ts
+SF:D:\Workarea\iota.eco\iota-pico\pal-nodejs\src\crypto\platformCrypto.ts
 FN:17,(anonymous_1)
 FN:35,(anonymous_2)
 FN:53,(anonymous_3)
@@ -137,7 +137,7 @@ BRF:28
 BRH:28
 end_of_record
 TN:
-SF:D:\Workarea\iota-pico\pal-nodejs\src\network\networkClient.ts
+SF:D:\Workarea\iota.eco\iota-pico\pal-nodejs\src\network\networkClient.ts
 FN:33,(anonymous_1)
 FN:59,(anonymous_2)
 FN:73,(anonymous_3)
@@ -296,7 +296,7 @@ BRF:45
 BRH:45
 end_of_record
 TN:
-SF:D:\Workarea\iota-pico\pal-nodejs\src\services\rngService.ts
+SF:D:\Workarea\iota.eco\iota-pico\pal-nodejs\src\services\rngService.ts
 FN:13,(anonymous_1)
 FNF:1
 FNH:1

@@ -34,7 +34,7 @@ Generate an array of random numbers.
 
 **Parameters:**
 
-| Param | Type | Description |
+| Name | Type | Description |
 | ------ | ------ | ------ |
 | length | `number` |  The number of numbers to generate. |
 
